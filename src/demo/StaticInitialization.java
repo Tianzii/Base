@@ -19,38 +19,40 @@ class Tableware
         System.out.println("Tableware静态代码块");
     }
 
+    // 成员变量
+    Bowl bowl6 = new Bowl(6);
+
     // 构造方法
     Tableware()
     {
         System.out.println("Tableware构造方法");
     }
-
-    // 成员变量
-    Bowl bowl6 = new Bowl(6);
 }
 
-// Tableware子变量
+// Tableware子类
 class Table extends Tableware
 {
-    // 构造代码块1
-    {
-        System.out.println("Table非静态代码块_1");
+    // 类变量
+    static Bowl bowl1 = new Bowl(1);
+    // 类变量
+    static Bowl bowl2 = new Bowl(2);
+
+    // 静态代码块
+    static {
+        System.out.println("Table静态代码块");
     }
 
     // 成员变量
     Bowl bowl5 = new Bowl(5); // 9
 
+    // 构造代码块1
+    {
+        System.out.println("Table非静态代码块_1");
+    }
+
     // 构造代码块2
     {
         System.out.println("Table非静态代码块_2");
-    }
-
-    // 类变量
-    static Bowl bowl1 = new Bowl(1);
-
-    // 静态代码块
-    static {
-        System.out.println("Table静态代码块");
     }
 
     // 构造方法
@@ -58,17 +60,17 @@ class Table extends Tableware
     {
         System.out.println("Table构造方法");
     }
-
-    // 类变量
-    static Bowl bowl2 = new Bowl(2);
 }
 
 class Cupboard extends Tableware
 {
-    // 成员变量
-    Bowl bowl3 = new Bowl(3);
     // 类变量
     static Bowl bowl4 = new Bowl(4);
+    // 类变量
+    static Bowl bowl5 = new Bowl(5);
+
+    // 成员变量
+    Bowl bowl3 = new Bowl(3);
 
     // 构造方法
     Cupboard()
@@ -81,13 +83,15 @@ class Cupboard extends Tableware
     {
         System.out.println("otherMethod(" + marker + ")");
     }
-
-    // 类变量
-    static Bowl bowl5 = new Bowl(5);
 }
 
 public class StaticInitialization
 {
+    // 类变量*2
+    static Table table = new Table();
+    static Cupboard cupboard = new Cupboard();
+
+    // 静态方法
     public static void main(String args[])
     {
         String s = new String("nihao");
@@ -95,8 +99,4 @@ public class StaticInitialization
         System.out.println("main()");
         cupboard.otherMethod(1);
     }
-
-    // 类变量*2
-    static Table table = new Table();
-    static Cupboard cupboard = new Cupboard();
 }

@@ -5,6 +5,13 @@ import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
 
 /**
+ * 动态代理理解：
+ *   1. InvocationHandler传入被代理对象(important)
+ *   2. 通过反射(clone())获取成员信息并生成被代理对象的代理类
+ *   3. (Person)Proxy.newProxyInstance(...)，将返回的实例对象转换成对象接口(？)
+ */
+
+/**
  * 创建person接口
  */
 interface Person

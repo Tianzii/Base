@@ -6,9 +6,12 @@ import java.lang.reflect.Proxy;
 
 /**
  * 动态代理理解：
- *   1. InvocationHandler传入被代理对象(important)
- *   2. 通过反射(clone())获取成员信息并生成被代理对象的代理类
- *   3. (Person)Proxy.newProxyInstance(...)，将返回的实例对象转换成对象接口(？)
+ *   1. 通过反射获取成员信息并生成被代理对象的代理类：
+ *   	  getProxyClass传入加载器和接口
+ *   	  generateProxyClass()方法根据接口生成代理类字节码
+ *   	  使用类加载器生成代理类
+ *   2. InvocationHandler传入被代理对象
+ *   3. (Person)Proxy.newProxyInstance(...)返回生成的代理对象
  */
 
 /**
@@ -63,7 +66,9 @@ class StuInvocationHandler<T> implements InvocationHandler
 	@Override
 	public Object invoke(Object proxy, Method method, Object[] args) throws Throwable
 	{
+		// 扩展功能
 		System.out.println("代理执行" + method.getName() + "方法");
+		// 调用方法
 		Object result = method.invoke(target, args);
 		return result;
 	}

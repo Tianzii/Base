@@ -3,36 +3,28 @@ package Reflect;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Method;
 
-class hello
-{
-	public hello()
-	{
+class hello {
+	public hello() {
 		System.out.println("animal");
 	}
 
-	public void get()
-	{
+	public void get() {
 		System.out.println("get it");
 	}
 }
 
-class world extends hello
-{
-	public world()
-	{
+class world extends hello {
+	public world() {
 		System.out.println("dog");
 	}
 
-	public void set()
-	{
+	public void set() {
 		System.out.println("set");
 	}
 }
 
-public class ConstructorMehod
-{
-	public static void main(String[] args) throws Exception
-	{
+public class ConstructorMehod {
+	public static void main(String[] args) throws Exception {
 		Constructor<?> constructor[] = hello.class.getDeclaredConstructors();
 		System.out.println(constructor[0].getName());
 

@@ -1,7 +1,6 @@
 package Annotation;
 
-public class Person
-{
+public class Person {
 	private String id;
 
 	@Length(min = 3, max = 30, errorMsg = "姓名长度必须3-30之间")
@@ -9,33 +8,27 @@ public class Person
 
 	private Integer age;
 
-	public String getId()
-	{
+	public String getId() {
 		return id;
 	}
 
-	public void setId(String id)
-	{
+	public void setId(String id) {
 		this.id = id;
 	}
 
-	public String getName()
-	{
+	public String getName() {
 		return name;
 	}
 
-	public void setName(String name)
-	{
+	public void setName(String name) {
 		this.name = name;
 	}
 
-	public Integer getAge()
-	{
+	public Integer getAge() {
 		return age;
 	}
 
-	public void setAge(Integer age)
-	{
+	public void setAge(Integer age) {
 		this.age = age;
 	}
 

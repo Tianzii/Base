@@ -5,8 +5,7 @@ import static java.lang.System.out;
 import java.lang.reflect.Field;
 import java.util.Arrays;
 
-enum Tweedle
-{
+enum Tweedle {
 	DEE, DUM
 }
 
@@ -15,19 +14,16 @@ enum Tweedle
  * @author Tian
  * @since  2023-02-28 20:52:47
  */
-public class Book
-{
+public class Book {
 	public long chapters = 0;
 	public String[] characters = { "Alice", "White Rabbit" };
 	public Tweedle twin = Tweedle.DEE;
 
-	public static void main(String... args)
-	{
+	public static void main(String... args) {
 		Book book = new Book();
 		String fmt = "%6S:  %-12s = %s%n";
 
-		try
-		{
+		try {
 			// 获取对象
 			Class<?> c = book.getClass();
 
@@ -52,11 +48,9 @@ public class Book
 			out.format(fmt, "after", "twin", t.get(book));
 
 			// production code should handle these exceptions more gracefully
-		} catch (NoSuchFieldException x)
-		{
+		} catch (NoSuchFieldException x) {
 			x.printStackTrace();
-		} catch (IllegalAccessException x)
-		{
+		} catch (IllegalAccessException x) {
 			x.printStackTrace();
 		}
 	}

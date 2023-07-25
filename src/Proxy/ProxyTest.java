@@ -17,8 +17,7 @@ import java.lang.reflect.Proxy;
 /**
  * 创建person接口
  */
-interface Person
-{
+interface Person {
 	// 交作业
 	void giveTask();
 }
@@ -28,17 +27,14 @@ interface Person
  * @author Tian
  * @since  2023-03-01 13:54:54
  */
-class Student implements Person
-{
+class Student implements Person {
 	private String name;
 
-	public Student(String name)
-	{
+	public Student(String name) {
 		this.name = name;
 	}
 
-	public void giveTask()
-	{
+	public void giveTask() {
 		System.out.println(name + "交语文作业");
 	}
 }
@@ -48,13 +44,11 @@ class Student implements Person
  * @author Tian
  * @since  2023-03-01 13:55:55
  */
-class StuInvocationHandler<T> implements InvocationHandler
-{
+class StuInvocationHandler<T> implements InvocationHandler {
 	// invocationHandler持有的被代理对象
 	T target;
 
-	public StuInvocationHandler(T target)
-	{
+	public StuInvocationHandler(T target) {
 		this.target = target;
 	}
 
@@ -64,8 +58,7 @@ class StuInvocationHandler<T> implements InvocationHandler
 	 * args：代表调用目标方法时传入的实参
 	 */
 	@Override
-	public Object invoke(Object proxy, Method method, Object[] args) throws Throwable
-	{
+	public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
 		// 扩展功能
 		System.out.println("代理执行" + method.getName() + "方法");
 		// 调用方法
@@ -79,10 +72,8 @@ class StuInvocationHandler<T> implements InvocationHandler
  * @author Tian
  * @since  2023-03-01 13:56:43
  */
-public class ProxyTest
-{
-	public static void main(String[] args)
-	{
+public class ProxyTest {
+	public static void main(String[] args) {
 
 		// 创建一个实例对象，这个对象是被代理的对象
 		Person linqian = new Student("林浅");

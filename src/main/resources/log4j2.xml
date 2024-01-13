@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration status="WARN" monitorInterval="30">
+    <!-- 定义日志输出源 -->
+    <appenders>
+        <!-- 配置控制台输出 -->
+        <console name="Console" target="SYSTEM_OUT">
+            <!-- 输出格式 -->
+            <PatternLayout pattern="[%d{HH:mm:ss:SSS}] [%p] - %l - %m%n"/>
+        </console>
+
+        <!--将日志信息打印到指定路径的文件-->
+        <file name="log" fileName="./log/test.log" append="false">
+            <PatternLayout pattern="%d{HH:mm:ss.SSS} %-5level %class{36} %L %M - %msg%xEx%n"/>
+        </file>
+    </appenders>
+
+    <loggers>
+        <!-- <Logger name="Logger1" level="debug" additivity="false">
+            <appender-ref ref="Console"/>
+        </Logger>
+        <Logger name="Logger2" level="info" additivity="false">
+            <appender-ref ref="Console"/>
+        </Logger>
+        <Logger name="org.example.LoggerTest" level="info" additivity="false">
+            <appender-ref ref="Console"/>
+        </Logger> -->
+        <Logger name="logger" level="info">
+            <appender-ref ref="log"/>
+        </Logger>
+
+        <!-- 根日志 -->
+        <root level="INFO">
+            <!-- 只有引入appender，appender才会生效 -->
+            <appender-ref ref="Console"/>
+        </root>
+    </loggers>
+</configuration>
